@@ -1,6 +1,8 @@
-# 🖊️ Detekcja Długopisu i Kalkulatora (YOLOv11)
+# 🖊️ YOLOv11 Object Detection on Apple Silicon (M1)
 
-Projekt wykorzystuje model YOLOv11 do rozpoznawania obiektów w czasie rzeczywistym. Wytrenowany lokalnie na Macu M1.
+Projekt akademicki realizujący wykrywanie obiektów codziennego użytku (`dlugopis`, `kalkulator`) w czasie rzeczywistym przy użyciu najnowszej architektury **YOLOv11** (wersja Nano).
+
+Cały proces - od akwizycji danych, przez adnotację w Label Studio, aż po trening sieci neuronowej - został przeprowadzony lokalnie na procesorze **Apple M1** z wykorzystaniem akceleracji graficznej **MPS (Metal Performance Shaders)**.
 
 ## 🚀 Szybki start (po sklonowaniu)
 
@@ -20,9 +22,10 @@ pip install ultralytics
 yolo predict model=best.pt source=0 show=true
 ```
 
-### 3. 📊 Informacje o modelu
+### 3. 📊 Specyfikacja projektu
 
-• Klasy: dlugopis, kalkulator
-• Model: YOLOv11n (Nano)
-• Urządzenie: Apple Silicon (MPS)
-• Wyniki: mAP50 = 54%
+- **Architektura:** YOLOv11n (101 warstw, ~2.5M parametrów)
+- **Zbiór danych:** 127 autorskich zdjęć (podział train/val: 80/20)
+- **Czas treningu:** ~11 minut (50 epok na Apple M1 GPU)
+- **Uzyskana skuteczność:** mAP50 = 54.1% (kalkulator: 64.4%, długopis: 43.9%)
+- **Wydajność detekcji live:** ~34 ms / klatkę (~30 FPS)
