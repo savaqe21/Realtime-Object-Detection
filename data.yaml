@@ -1,0 +1,7 @@
+path: /Users/fabianlesniak/Desktop/Projekt_AI/dataset
+train: train/images
+val: val/images
+
+names:
+  0: dlugopis
+  1: kalkulator
